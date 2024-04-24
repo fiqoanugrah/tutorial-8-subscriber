@@ -3,7 +3,7 @@
 
 > REFLECTION
 
-#a. what is amqp?
+a. what is amqp?
 
 AMQP adalah singkatan dari Advanced Message Queuing Protocol, yang merupakan protokol komunikasi berbasis standar yang digunakan untuk memfasilitasi pertukaran pesan secara asinkron antara komponen aplikasi, layanan, atau sistem. Protokol ini dirancang untuk memastikan komunikasi yang andal dan aman, mendukung berbagai fitur seperti message queuing, routing (melalui exchange dan binding), publikasi-subskripsi, dan transaksi. Keandalan dan fleksibilitas AMQP membuatnya sangat cocok untuk aplikasi yang membutuhkan pengiriman pesan yang terjamin dan efisien di lingkungan terdistribusi.
 
