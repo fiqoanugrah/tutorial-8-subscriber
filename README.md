@@ -21,7 +21,24 @@ The screenshot from the RabbitMQ Management Interface above shows a peak of appr
 In my setup, the total number of queued messages peaked at around 30. This is reflective of the publisher's configuration and the rate at which it was publishing messages, as well as the consumer's ability to process those messages at the time of the capture.
 
 
+![image](https://github.com/fiqoanugrah/tutorial-8-subscriber/assets/87713462/24b3de0a-ac7c-4ea7-a659-28c8b0061771)
 
 
+![image](https://github.com/fiqoanugrah/tutorial-8-subscriber/assets/87713462/b28ec3a1-a6ee-4984-b99f-0fe90da6349c)
 
+After running three different subscribers in separate terminals with `cargo run`, the message queue's spike decreases faster than when running a single subscriber. This behavior is expected because having multiple subscribers allows for concurrent message consumption. Each subscriber takes a portion of the message load, processing messages in parallel, which enhances throughput and reduces the time messages spend in the queue.
+
+This reflects a well-distributed workload among multiple consumers, a key principle in scalable message-driven architectures. It's an effective way to handle bursts of messages or high message volumes.
+
+Upon reviewing the code for both the publisher and subscribers, there are always opportunities for improvement. Some considerations include:
+
+- **Batch Processing**: If the subscribers can process messages in batches, this could reduce the overhead of acknowledging each message individually.
+
+- **Performance Monitoring**: Implementing more detailed logging or metrics collection for both publishers and subscribers could provide insights for further optimizations.
+
+- **Error Handling**: Reviewing how the system behaves under failure (e.g., subscriber crashes or network issues) and ensuring there's robust error handling and recovery.
+
+- **Message Acknowledgment**: Ensuring that messages are not lost, it might be beneficial to review the acknowledgment strategy. For instance, ensuring idempotence in message processing if auto acknowledgment is enabled.
+
+- **Resource Allocation**: Monitoring the resources (CPU, memory usage) to make sure the system is properly provisioned.
 
